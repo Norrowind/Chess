@@ -19,6 +19,7 @@ AChessboard::AChessboard()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	ChessPieceZValue = FVector(0.f, 0.f, 30.f);
+	bIsHighlited = false;
 }
 
 // Called when the game starts or when spawned

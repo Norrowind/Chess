@@ -24,12 +24,8 @@ void AChessPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	GameMode = Cast<AChessGameModeBase>(GetWorld()->GetAuthGameMode());
-	if (GameMode)
-	{
-		Chessboard = GameMode->GetChessboard();
-	}
-}
 
+}
 
 void AChessPlayerController::SetupInputComponent()
 {
@@ -43,6 +39,11 @@ void AChessPlayerController::SetupInputComponent()
 void AChessPlayerController::SetConrolledColor(const EChessColor& NewContorlledColor)
 {
 	ControlledColor = NewContorlledColor;
+}
+
+void AChessPlayerController::SetChessboard(AChessboard * Chessboard)
+{
+	this->Chessboard = Chessboard;
 }
 
 EChessColor AChessPlayerController::GetPlayerColor() const
@@ -99,9 +100,12 @@ void AChessPlayerController::OnClick()
 			else
 			{
 				//If chessboard was previosly highlighted - unhighlight it
-				if (Chessboard->IsHighlited())
+				if (Chessboard)
 				{
-					Chessboard->UnHighlight();
+					if (Chessboard->IsHighlited())
+					{
+						Chessboard->UnHighlight();
+					}
 				}
 			}
 		}

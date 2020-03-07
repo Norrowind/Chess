@@ -176,7 +176,7 @@ private:
 	TArray<AChessPiece*>ChessPiecesOnBoard;
 
 	//Use for checking is chessboard ChessFields are highlited
-	bool bIsHighlited = false;
+	bool bIsHighlited;
 
 	//Vector to add to original position of ChessField for right ChessPiece spawning location
 	UPROPERTY(EditDefaultsOnly, Category = "Chessboard")

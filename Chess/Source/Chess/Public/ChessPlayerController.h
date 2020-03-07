@@ -31,6 +31,8 @@ public:
 
 	void SetConrolledColor(const EChessColor& NewContorlledColor);
 
+	void SetChessboard(AChessboard* Chessboard);
+
 	virtual void SetupInputComponent() override;
 
 	//Responsible for player-chessboard interaction

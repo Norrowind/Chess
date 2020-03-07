@@ -28,6 +28,8 @@ void AChessGameModeBase::BeginPlay()
 	PlayerController = Cast<AChessPlayerController>(GetWorld()->GetFirstPlayerController());
 	if (PlayerController)
 	{
+		// Set chessboard for player(do it here instead of getting in player controller BeginPlay() to avoid race condition)
+		PlayerController->SetChessboard(Chessboard);
 		PlayerController->OnMoveDone.AddDynamic(this, &AChessGameModeBase::OnMoveDone);
 	}
 
